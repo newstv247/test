@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Viewer</title>
+</head>
+<body>
+
+<script>
+
+const token =
+Math.random().toString(36).substring(2,14);
+
+window.location.href =
+"./pdfjs/web/viewer.html?file=../../pdfs/demo.pdf&io0=" + token;
+
+</script>
+
+</body>
+</html>
