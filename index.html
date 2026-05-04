@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>My Site</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; }
+    #adobe-dc-view { width: 100%; height: 100vh; }
+  </style>
+</head>
+<body>
+
+  <div id="adobe-dc-view"></div>
+
+  <!-- Adobe PDF Embed API -->
+  <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+
+  <script>
+    document.addEventListener("adobe_dc_view_sdk.ready", function () {
+      var adobeDCView = new AdobeDC.View({
+        clientId: "1418a33d8d1c49d8810f981f74999fff",  // ← আপনার key
+        divId: "adobe-dc-view"
+      });
+
+      adobeDCView.previewFile({
+        content: {
+          location: {
+            url: "index.pdf"  // ← আপনার PDF path
+          }
+        },
+        metaData: {
+          fileName: "document.pdf"
+        }
+      }, {
+        embedMode: "FULL_WINDOW",  // পুরো page জুড়ে
+        showDownloadPDF: true,
+        showPrintPDF: true,
+        showLeftHandPanel: false,
+        showAnnotationTools: false
+      });
+    });
+  </script>
+
+</body>
+</html>
