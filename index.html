@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File System</title>
+</head>
+<body>
+
+<h2>Loading...</h2>
+
+<script>
+/*
+If user opens:
+https://username.github.io/?io0=56ktkh2kskd
+*/
+
+const params = new URLSearchParams(window.location.search);
+const code = params.get("io0");
+
+if (code) {
+  // redirect to files handler page
+  window.location.href = "/files/?io0=" + encodeURIComponent(code);
+} else {
+  document.body.innerHTML = `
+    <h1>File System</h1>
+    <p>Use valid link with code.</p>
+  `;
+}
+</script>
+
+</body>
+</html>
